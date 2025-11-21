@@ -313,190 +313,190 @@ fun AdvancedSearchContent(
         )
     }
 
-    VSpacer(24.dp)
+//    VSpacer(24.dp)
 
-    PremiumHeader()
+//    PremiumHeader()
 
-    SectionPremiumUniversalLawrence {
-        AdvancedSearchDropdown(
-            title = R.string.Market_Filter_Sectors,
-            value = if (uiState.sectors.size == 1 && uiState.sectors[0].item == null) null else uiState.sectors.size.toString(),
-            onDropdownClick = {
-                navController.paidAction(AdvancedSearch) {
-                    navController.slideFromBottom(R.id.sectorsSelectorFragment)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.Sectors)
-                )
-            }
-        )
-    }
+//    SectionPremiumUniversalLawrence {
+//        AdvancedSearchDropdown(
+//            title = R.string.Market_Filter_Sectors,
+//            value = if (uiState.sectors.size == 1 && uiState.sectors[0].item == null) null else uiState.sectors.size.toString(),
+//            onDropdownClick = {
+//                navController.paidAction(AdvancedSearch) {
+//                    navController.slideFromBottom(R.id.sectorsSelectorFragment)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.Sectors)
+//                )
+//            }
+//        )
+//    }
 
-    VSpacer(24.dp)
+//    VSpacer(24.dp)
+//
+//    SectionPremiumUniversalLawrence {
+//        AdvancedSearchDropdown(
+//            title = R.string.Market_Filter_PriceChange,
+//            value = uiState.priceChange.title,
+//            valueColor = uiState.priceChange.item?.color ?: TextColor.Grey,
+//            onDropdownClick = {
+//                navController.paidAction(AdvancedSearch) {
+//                    showBottomSheet(PriceChange)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.PriceChange)
+//                )
+//            }
+//        )
+//        AdvancedSearchDropdown(
+//            title = R.string.Market_Filter_PricePeriod,
+//            value = uiState.period.title,
+//            onDropdownClick = {
+//                navController.paidAction(AdvancedSearch) {
+//                    showBottomSheet(PricePeriod)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.PricePeriod)
+//                )
+//            }
+//
+//        )
+//        AdvancedSearchDropdown(
+//            title = R.string.Market_Filter_TradingSignals,
+//            value = uiState.filterTradingSignal.title,
+//            onDropdownClick = {
+//                navController.paidAction(AdvancedSearch) {
+//                    showBottomSheet(TradingSignals)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.TradingSignal)
+//                )
+//            }
+//        )
+//        AdvancedSearchDropdown(
+//            title = R.string.Market_Filter_PriceCloseTo,
+//            value = uiState.priceCloseTo?.titleResId?.let { stringResource(it) },
+//            onDropdownClick = {
+//                navController.paidAction(AdvancedSearch) {
+//                    showBottomSheet(PriceCloseTo)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.PriceCloseTo)
+//                )
+//            }
+//        )
+//    }
+//
+//    VSpacer(24.dp)
+//
+//    SectionPremiumUniversalLawrence {
+//        AdvancedSearchSwitch(
+//            title = R.string.Market_Filter_OutperformedBtc,
+//            enabled = uiState.outperformedBtcOn,
+//            onChecked = {
+//                navController.paidAction(AdvancedSearch) {
+//                    viewModel.updateOutperformedBtcOn(it)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.OutperformedBtc)
+//                )
+//            }
+//        )
+//        AdvancedSearchSwitch(
+//            title = R.string.Market_Filter_OutperformedEth,
+//            enabled = uiState.outperformedEthOn,
+//            onChecked = {
+//                navController.paidAction(AdvancedSearch) {
+//                    viewModel.updateOutperformedEthOn(it)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.OutperformedEth)
+//                )
+//            }
+//        )
+//        AdvancedSearchSwitch(
+//            title = R.string.Market_Filter_OutperformedBnb,
+//            enabled = uiState.outperformedBnbOn,
+//            onChecked = {
+//                navController.paidAction(AdvancedSearch) {
+//                    viewModel.updateOutperformedBnbOn(it)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.OutperformedBnb)
+//                )
+//            }
+//        )
+//    }
 
-    SectionPremiumUniversalLawrence {
-        AdvancedSearchDropdown(
-            title = R.string.Market_Filter_PriceChange,
-            value = uiState.priceChange.title,
-            valueColor = uiState.priceChange.item?.color ?: TextColor.Grey,
-            onDropdownClick = {
-                navController.paidAction(AdvancedSearch) {
-                    showBottomSheet(PriceChange)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.PriceChange)
-                )
-            }
-        )
-        AdvancedSearchDropdown(
-            title = R.string.Market_Filter_PricePeriod,
-            value = uiState.period.title,
-            onDropdownClick = {
-                navController.paidAction(AdvancedSearch) {
-                    showBottomSheet(PricePeriod)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.PricePeriod)
-                )
-            }
+//    VSpacer(24.dp)
+//
+//    SectionPremiumUniversalLawrence {
+//        AdvancedSearchSwitch(
+//            title = R.string.Market_Filter_SolidCex,
+//            subtitle = R.string.Market_Filter_SolidCex_Description,
+//            enabled = uiState.solidCexOn,
+//            onChecked = {
+//                navController.paidAction(AdvancedSearch) {
+//                    viewModel.updateSolidCexOn(it)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.GoodCexVolume)
+//                )
+//            }
+//        )
+//        AdvancedSearchSwitch(
+//            title = R.string.Market_Filter_SolidDex,
+//            subtitle = R.string.Market_Filter_SolidDex_Description,
+//            enabled = uiState.solidDexOn,
+//            onChecked = {
+//                navController.paidAction(AdvancedSearch) {
+//                    viewModel.updateSolidDexOn(it)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.GoodDexVolume)
+//                )
+//            }
+//        )
+//        AdvancedSearchSwitch(
+//            title = R.string.Market_Filter_GoodDistribution,
+//            subtitle = R.string.Market_Filter_GoodDistribution_Description,
+//            enabled = uiState.goodDistributionOn,
+//            onChecked = {
+//                navController.paidAction(AdvancedSearch) {
+//                    viewModel.updateGoodDistributionOn(it)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.GoodDistribution)
+//                )
+//            }
+//        )
+//        AdvancedSearchSwitch(
+//            title = R.string.Market_Filter_ListedOnTopExchanges,
+//            enabled = uiState.listedOnTopExchangesOn,
+//            onChecked = {
+//                navController.paidAction(AdvancedSearch) {
+//                    viewModel.updateListedOnTopExchangesOn(it)
+//                }
+//                stat(
+//                    page = StatPage.AdvancedSearch,
+//                    event = StatEvent.OpenPremium(StatPremiumTrigger.ListedOnTopExchanges)
+//                )
+//            }
+//        )
+//    }
 
-        )
-        AdvancedSearchDropdown(
-            title = R.string.Market_Filter_TradingSignals,
-            value = uiState.filterTradingSignal.title,
-            onDropdownClick = {
-                navController.paidAction(AdvancedSearch) {
-                    showBottomSheet(TradingSignals)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.TradingSignal)
-                )
-            }
-        )
-        AdvancedSearchDropdown(
-            title = R.string.Market_Filter_PriceCloseTo,
-            value = uiState.priceCloseTo?.titleResId?.let { stringResource(it) },
-            onDropdownClick = {
-                navController.paidAction(AdvancedSearch) {
-                    showBottomSheet(PriceCloseTo)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.PriceCloseTo)
-                )
-            }
-        )
-    }
-
-    VSpacer(24.dp)
-
-    SectionPremiumUniversalLawrence {
-        AdvancedSearchSwitch(
-            title = R.string.Market_Filter_OutperformedBtc,
-            enabled = uiState.outperformedBtcOn,
-            onChecked = {
-                navController.paidAction(AdvancedSearch) {
-                    viewModel.updateOutperformedBtcOn(it)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.OutperformedBtc)
-                )
-            }
-        )
-        AdvancedSearchSwitch(
-            title = R.string.Market_Filter_OutperformedEth,
-            enabled = uiState.outperformedEthOn,
-            onChecked = {
-                navController.paidAction(AdvancedSearch) {
-                    viewModel.updateOutperformedEthOn(it)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.OutperformedEth)
-                )
-            }
-        )
-        AdvancedSearchSwitch(
-            title = R.string.Market_Filter_OutperformedBnb,
-            enabled = uiState.outperformedBnbOn,
-            onChecked = {
-                navController.paidAction(AdvancedSearch) {
-                    viewModel.updateOutperformedBnbOn(it)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.OutperformedBnb)
-                )
-            }
-        )
-    }
-
-    VSpacer(24.dp)
-
-    SectionPremiumUniversalLawrence {
-        AdvancedSearchSwitch(
-            title = R.string.Market_Filter_SolidCex,
-            subtitle = R.string.Market_Filter_SolidCex_Description,
-            enabled = uiState.solidCexOn,
-            onChecked = {
-                navController.paidAction(AdvancedSearch) {
-                    viewModel.updateSolidCexOn(it)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.GoodCexVolume)
-                )
-            }
-        )
-        AdvancedSearchSwitch(
-            title = R.string.Market_Filter_SolidDex,
-            subtitle = R.string.Market_Filter_SolidDex_Description,
-            enabled = uiState.solidDexOn,
-            onChecked = {
-                navController.paidAction(AdvancedSearch) {
-                    viewModel.updateSolidDexOn(it)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.GoodDexVolume)
-                )
-            }
-        )
-        AdvancedSearchSwitch(
-            title = R.string.Market_Filter_GoodDistribution,
-            subtitle = R.string.Market_Filter_GoodDistribution_Description,
-            enabled = uiState.goodDistributionOn,
-            onChecked = {
-                navController.paidAction(AdvancedSearch) {
-                    viewModel.updateGoodDistributionOn(it)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.GoodDistribution)
-                )
-            }
-        )
-        AdvancedSearchSwitch(
-            title = R.string.Market_Filter_ListedOnTopExchanges,
-            enabled = uiState.listedOnTopExchangesOn,
-            onChecked = {
-                navController.paidAction(AdvancedSearch) {
-                    viewModel.updateListedOnTopExchangesOn(it)
-                }
-                stat(
-                    page = StatPage.AdvancedSearch,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.ListedOnTopExchanges)
-                )
-            }
-        )
-    }
-
-    VSpacer(32.dp)
+//    VSpacer(32.dp)
 }
 
 @Composable

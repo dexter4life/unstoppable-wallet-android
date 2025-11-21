@@ -11,6 +11,7 @@
     <string name="Button_Hide">隐藏</string>
     <string name="Button_Cancel">取消</string>
     <string name="Button_Next">继续</string>
+    <string name="Button_GettingStarted">开始使用</string>
     <string name="Button_Enable">启用</string>
     <string name="Button_Disable">禁用</string>
     <string name="Button_ScanQr">扫描二维码</string>

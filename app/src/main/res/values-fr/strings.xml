@@ -11,6 +11,7 @@
     <string name="Button_Hide">Masquer</string>
     <string name="Button_Cancel">Annuler</string>
     <string name="Button_Next">Suivant</string>
+    <string name="Button_GettingStarted">Commencer</string>
     <string name="Button_Enable">Activer</string>
     <string name="Button_Disable">Désactiver</string>
     <string name="Button_ScanQr">QR Code à scanner</string>

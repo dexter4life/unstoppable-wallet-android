@@ -23,6 +23,7 @@ import io.horizontalsystems.bankwallet.entities.Wallet
 import io.horizontalsystems.bankwallet.entities.transactionrecords.TransactionRecord
 import io.horizontalsystems.bankwallet.entities.transactionrecords.bitcoin.BitcoinTransactionRecord
 import io.horizontalsystems.bankwallet.modules.amount.AmountInputType
+import io.horizontalsystems.bankwallet.modules.authentication.AuthData
 import io.horizontalsystems.bankwallet.modules.balance.BalanceSortType
 import io.horizontalsystems.bankwallet.modules.balance.BalanceViewType
 import io.horizontalsystems.bankwallet.modules.main.MainModule
@@ -85,7 +86,6 @@ interface ILocalStorage {
     var baseCurrencyCode: String?
     var authToken: String?
     val appId: String?
-
     var baseBitcoinProvider: String?
     var baseLitecoinProvider: String?
     var baseEthereumProvider: String?
@@ -105,6 +105,7 @@ interface ILocalStorage {
     var balanceTotalCoinUid: String?
     var termsAccepted: Boolean
     var mainShowedOnce: Boolean
+    var showLoginScreen: Boolean
     var notificationId: String?
     var notificationServerTime: Long
     var currentTheme: ThemeType

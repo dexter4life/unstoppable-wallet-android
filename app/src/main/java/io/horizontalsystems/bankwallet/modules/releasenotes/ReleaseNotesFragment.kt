@@ -101,33 +101,26 @@ fun ReleaseNotesScreen(
                 onUrlClick = {}
             )
 
-            HsDivider()
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(ComposeAppTheme.colors.tyler)
-                    .height(62.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Spacer(Modifier.padding(start = 16.dp))
-                IconButton(
-                    R.drawable.ic_twitter_filled_24,
-                    viewModel.twitterUrl,
-                    stringResource(R.string.CoinPage_Twitter)
-                )
-                IconButton(
-                    R.drawable.ic_telegram_filled_24,
-                    viewModel.telegramUrl,
-                    stringResource(R.string.CoinPage_Telegram)
-                )
-
-                Spacer(Modifier.weight(1f))
-
-                caption_jacob(
-                    modifier = Modifier.padding(end = 24.dp),
-                    text = stringResource(R.string.ReleaseNotes_JoinUnstoppables)
-                )
-            }
+//            HsDivider()
+//            Row(
+//                modifier = Modifier
+//                    .fillMaxWidth()
+//                    .background(ComposeAppTheme.colors.tyler)
+//                    .height(62.dp),
+//                verticalAlignment = Alignment.CenterVertically
+//            ) {
+//                Spacer(Modifier.padding(start = 16.dp))
+//                IconButton(
+//                    R.drawable.ic_twitter_filled_24,
+//                    viewModel.twitterUrl,
+//                    stringResource(R.string.CoinPage_Twitter)
+//                )
+//                IconButton(
+//                    R.drawable.ic_telegram_filled_24,
+//                    viewModel.telegramUrl,
+//                    stringResource(R.string.CoinPage_Telegram)
+//                )
+//            }
         }
     }
 }

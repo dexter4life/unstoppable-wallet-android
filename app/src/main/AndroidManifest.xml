@@ -55,6 +55,9 @@
         <activity
             android:name=".modules.keystore.KeyStoreActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".modules.authentication.LoginActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".modules.main.MainActivity"

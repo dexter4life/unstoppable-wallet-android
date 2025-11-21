@@ -7,6 +7,7 @@ import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.sp
 import io.horizontalsystems.bankwallet.ui.compose.ComposeAppTheme
 
 @Composable
@@ -228,6 +229,7 @@ fun B1(
         onTextLayout = onTextLayout,
         style = ComposeAppTheme.typography.body,
         color = ComposeAppTheme.colors.grey,
+        fontSize = 16.sp,
     )
 }
 @Composable

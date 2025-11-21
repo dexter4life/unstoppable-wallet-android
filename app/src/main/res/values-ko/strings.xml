@@ -11,6 +11,7 @@
     <string name="Button_Hide">숨기기</string>
     <string name="Button_Cancel">취소</string>
     <string name="Button_Next">다음</string>
+    <string name="Button_GettingStarted">시작하기</string>
     <string name="Button_Enable">활성화</string>
     <string name="Button_Disable">비활성화</string>
     <string name="Button_ScanQr">QR 코드 스캔</string>

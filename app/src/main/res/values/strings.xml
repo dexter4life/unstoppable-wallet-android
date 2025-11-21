@@ -14,10 +14,18 @@
     <string name="Alert_Select" translatable="false">SELECT</string>
     <string name="Suspended">SUSPENDED</string>
 
+
+    <string name="Input_Password">Password</string>
+    <string name="Input_Email">Email</string>
+
+    <string name="Login_Title">Log In</string>
+
     <string name="Button_Show">Show</string>
     <string name="Button_Hide">Hide</string>
     <string name="Button_Cancel">Cancel</string>
     <string name="Button_Next">Next</string>
+    <string name="Button_GettingStarted">Getting Started</string>
+    <string name="Button_Login">Log In</string>
     <string name="Button_Enable">Enable</string>
     <string name="Button_Disable">Disable</string>
     <string name="Button_ScanQr">Scan QR Code</string>
@@ -77,12 +85,12 @@
 
     <!--Intro-->
 
-    <string name="Intro_Wallet_Screen2Title">Unchain Assets</string>
-    <string name="Intro_Wallet_Screen2Description">Don\'t lock yourself in and don\'t let others do that to you.</string>
-    <string name="Intro_Wallet_Screen3Title">Go Borderless</string>
-    <string name="Intro_Wallet_Screen3Description">Bypass conditional barriers and access markets globally.</string>
-    <string name="Intro_Wallet_Screen4Title">Stay Private</string>
-    <string name="Intro_Wallet_Screen4Description">Do not leak your private and financial data to the world.</string>
+    <string name="Intro_Wallet_Screen2Title">Send Money Across Borders in Seconds</string>
+    <string name="Intro_Wallet_Screen2Description">Send and receive money in any currency, worldwide.</string>
+    <string name="Intro_Wallet_Screen3Title">Security you can trust, wherever you go.</string>
+    <string name="Intro_Wallet_Screen3Description">Strong, scalable protection for every interaction.</string>
+    <string name="Intro_Wallet_Screen4Title">All your cards. One smart app.</string>
+    <string name="Intro_Wallet_Screen4Description">Your digital wallet, unified and intelligent.</string>
 
     <!--Rooted Device-->
 
@@ -1857,5 +1865,8 @@
     <string name="Contacts_Error_DefinedName">The name already exists</string>
 
     <string name="Hud_Text_Connected">Connected</string>
+    <string name="LoginWithAction_Title">Or log in with</string>
+    <string name="Button_Passkey">Login in with passkey</string>
+    <string name="Button_PassKey_Description">Passkey</string>
 
 </resources>

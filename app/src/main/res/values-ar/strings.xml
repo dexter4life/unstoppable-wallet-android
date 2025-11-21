@@ -8,6 +8,7 @@
     <string name="Suspended">معلق</string>
     <string name="Button_Cancel">إلغاء</string>
     <string name="Button_Next">التالي</string>
+    <string name="Button_GettingStarted">بدء الاستخدام</string>
     <string name="Button_Enable">تمكين</string>
     <string name="Button_Disable">تعطيل</string>
     <string name="Button_ScanQr">فحص رمز QR</string>

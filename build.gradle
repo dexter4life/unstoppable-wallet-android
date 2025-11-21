@@ -18,6 +18,7 @@ buildscript {
         biometric_version = "1.1.0"
         junit_version = "4.13.2"
         accompanist_version = "0.32.0"
+        latestVersion = "1.39.1"
     }
 
     repositories {

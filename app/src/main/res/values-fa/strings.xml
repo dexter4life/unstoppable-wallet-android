@@ -7,6 +7,7 @@
     <string name="Button_Show">نمایش</string>
     <string name="Button_Cancel">کنسل</string>
     <string name="Button_Next">بعدي</string>
+    <string name="Button_GettingStarted">شروع کار</string>
     <string name="Button_Enable">فعال کردن</string>
     <string name="Button_Disable">غیرفعال</string>
     <string name="Button_Close">بستن</string>

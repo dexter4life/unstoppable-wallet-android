@@ -11,6 +11,7 @@
     <string name="Button_Hide">Скрыть</string>
     <string name="Button_Cancel">Отменить</string>
     <string name="Button_Next">Далее</string>
+    <string name="Button_GettingStarted">Начало работы</string>
     <string name="Button_Enable">Активировать</string>
     <string name="Button_Disable">Выкл.</string>
     <string name="Button_ScanQr">Сканировать QR-код</string>

@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberAsyncImagePainter
 import coil.imageLoader
+import coil.request.ImageRequest
 import io.horizontalsystems.bankwallet.R
 import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.alternativeImageUrl
@@ -174,6 +175,57 @@ fun NftIcon(
             painter = painterResource(fallback),
             contentDescription = null,
             modifier = modifier.size(32.dp),
+            colorFilter = colorFilter
+        )
+    }
+}
+
+
+@Composable
+fun FlagImage(
+    url: String?,
+    alternativeUrl: String? = null,
+    placeholder: Int? = null,
+    modifier: Modifier,
+    colorFilter: ColorFilter? = null
+) {
+    val fallback = placeholder ?: R.drawable.ic_globe_20
+
+    val isAlternativeCached = alternativeUrl != null && isImageCached(alternativeUrl)
+    val imageUrl = if (isAlternativeCached) alternativeUrl else url
+
+    val overlayImage =
+        "https://images6.alphacoders.com/488/thumb-1920-488158.jpg"
+
+//    val painter = rememberAsyncImagePainter(
+//        model = ImageRequest.Builder(LocalContext.current)
+//            .data(alternativeUrl)
+//            .size(coil.size.Size.ORIGINAL) // Set the target size to load the image at.
+//            .build()
+//    )
+
+
+    when {
+        imageUrl != null -> Image(
+            painter = rememberAsyncImagePainter(
+                model = imageUrl,
+                error = alternativeUrl?.let {
+                    rememberAsyncImagePainter(
+                        model = alternativeUrl,
+                        error = painterResource(fallback)
+                    )
+                } ?: painterResource(fallback)
+            ),
+            contentDescription = null,
+            modifier = modifier,
+            colorFilter = colorFilter,
+            contentScale = ContentScale.FillBounds
+        )
+
+        else -> Image(
+            painter = painterResource(fallback),
+            contentDescription = null,
+            modifier = modifier,
             colorFilter = colorFilter
         )
     }

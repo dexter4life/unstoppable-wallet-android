@@ -64,7 +64,7 @@ import io.horizontalsystems.marketkit.models.MarketGlobal
 import java.math.BigDecimal
 
 @Composable
-fun MarketScreen(navController: NavController) {
+fun HomeScreen(navController: NavController) {
     val viewModel = viewModel<MarketViewModel>(factory = MarketModule.Factory())
     val uiState = viewModel.uiState
     val tabs = viewModel.tabs

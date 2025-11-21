@@ -185,6 +185,48 @@ fun ButtonPrimaryYellow(
     )
 }
 
+
+@Composable
+fun ButtonPrimaryOutline(
+    modifier: Modifier = Modifier,
+    title: String,
+    onClick: () -> Unit,
+    enabled: Boolean = true,
+    loadingIndicator: Boolean = false
+) {
+    ButtonPrimary(
+        modifier = modifier,
+        onClick = onClick,
+        border = BorderStroke(
+            width = 1.dp,
+            color = ComposeAppTheme.colors.andy
+        ),
+        buttonColors = ButtonPrimaryDefaults.textButtonColors(
+            backgroundColor = ComposeAppTheme.colors.transparent,
+            contentColor = ComposeAppTheme.colors.dark,
+            disabledBackgroundColor = ComposeAppTheme.colors.blade,
+            disabledContentColor = ComposeAppTheme.colors.andy,
+        ),
+        content = {
+            if (loadingIndicator) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(16.dp),
+                    color = ComposeAppTheme.colors.grey,
+                    strokeWidth = 2.dp
+                )
+                HSpacer(width = 8.dp)
+            }
+
+            Text(
+                title,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        },
+        enabled = enabled
+    )
+}
+
 @Composable
 fun ButtonPrimaryYellowWithIcon(
     modifier: Modifier = Modifier,

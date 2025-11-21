@@ -95,7 +95,6 @@ fun SettingsScreen(
                     openVipSupport = {
                         isVipSupportVisible = true
                     })
-                SettingsFooter(viewModel.appVersion, viewModel.companyWebPage)
             }
         }
         VipSupportBottomSheet(
@@ -321,45 +320,6 @@ private fun SettingSections(
         }
     )
 
-    VSpacer(24.dp)
-
-    PremiumHeader()
-
-    SectionPremiumUniversalLawrence {
-        if (!BuildConfig.FDROID_BUILD) {
-            HsSettingCell(
-                title = R.string.Settings_VipSupport,
-                icon = R.drawable.ic_support_yellow_24,
-                iconTint = ComposeAppTheme.colors.jacob,
-                onClick = {
-                    navController.paidAction(VIPSupport) {
-                        openVipSupport.invoke()
-                    }
-                    stat(
-                        page = StatPage.Settings,
-                        event = StatEvent.OpenPremium(StatPremiumTrigger.VipSupport)
-                    )
-                }
-            )
-            HsDivider()
-        }
-        HsSettingCell(
-            title = R.string.SettingsAddressChecker_Title,
-            icon = R.drawable.ic_radar_24,
-            iconTint = ComposeAppTheme.colors.jacob,
-            onClick = {
-                navController.paidAction(AddressBlacklist) {
-                    navController.slideFromRight(R.id.addressCheckerFragment)
-                }
-                stat(
-                    page = StatPage.Settings,
-                    event = StatEvent.OpenPremium(StatPremiumTrigger.AddressChecker)
-                )
-            }
-        )
-    }
-
-
     VSpacer(32.dp)
 
     CellUniversalLawrenceSection(
@@ -452,22 +412,6 @@ private fun SettingSections(
     )
 
     VSpacer(32.dp)
-
-    CellUniversalLawrenceSection(
-        listOf {
-            HsSettingCell(
-                R.string.Settings_Donate,
-                R.drawable.ic_heart_24,
-                onClick = {
-                    navController.slideFromRight(R.id.donateTokenSelectFragment)
-
-                    stat(page = StatPage.Settings, event = StatEvent.Open(StatPage.Donate))
-                }
-            )
-        }
-    )
-
-    VSpacer(32.dp)
 }
 
 @Composable
@@ -522,46 +466,6 @@ fun HsSettingCell(
             modifier = Modifier.size(20.dp),
             painter = painterResource(id = R.drawable.ic_arrow_right),
             contentDescription = null,
-        )
-    }
-}
-
-@Composable
-private fun SettingsFooter(appVersion: String, companyWebPage: String) {
-    val context = LocalContext.current
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        caption_grey(
-            text = stringResource(
-                R.string.Settings_InfoTitleWithVersion,
-                appVersion
-            ).uppercase()
-        )
-        HsDivider(
-            modifier = Modifier
-                .width(100.dp)
-                .padding(top = 8.dp, bottom = 4.5.dp)
-            )
-        Text(
-            text = stringResource(R.string.Settings_InfoSubtitle),
-            style = ComposeAppTheme.typography.micro,
-            color = ComposeAppTheme.colors.grey,
-        )
-        Image(
-            modifier = Modifier
-                .padding(top = 32.dp)
-                .size(32.dp)
-                .clickable {
-                    LinkHelper.openLinkInAppBrowser(context, companyWebPage)
-                },
-            painter = painterResource(id = R.drawable.ic_company_logo),
-            contentDescription = null,
-        )
-        caption_grey(
-            modifier = Modifier.padding(top = 12.dp, bottom = 32.dp),
-            text = stringResource(R.string.Settings_CompanyName),
         )
     }
 }

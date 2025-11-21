@@ -38,7 +38,7 @@ fun RadialBackground() {
                 .background(
                     brush = Brush.radialGradient(
                         colors = listOf(
-                            Color(0x80EDD716),
+                            Color(0x80ECD718),
                             Color(0x00EDD716)
                         ),
                         radius = 250.dp.dpToPx(),

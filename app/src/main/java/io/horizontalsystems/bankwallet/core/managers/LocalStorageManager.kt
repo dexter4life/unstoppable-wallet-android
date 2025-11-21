@@ -66,6 +66,8 @@ class LocalStorageManager(
     private val BIOMETRIC_ENABLED = "biometric_auth_enabled"
     private val PIN = "lock_pin"
     private val MAIN_SHOWED_ONCE = "main_showed_once"
+
+    private var SHOW_LOGIN_SCREEN = "show_login_screen"
     private val NOTIFICATION_ID = "notification_id"
     private val NOTIFICATION_SERVER_TIME = "notification_server_time"
     private val CURRENT_THEME = "current_theme"
@@ -403,6 +405,13 @@ class LocalStorageManager(
         get() = preferences.getBoolean(MAIN_SHOWED_ONCE, false)
         set(value) {
             preferences.edit().putBoolean(MAIN_SHOWED_ONCE, value).apply()
+        }
+
+
+    override var showLoginScreen: Boolean
+        get() = preferences.getBoolean(SHOW_LOGIN_SCREEN, true)
+        set(value) {
+            preferences.edit().putBoolean(SHOW_LOGIN_SCREEN, value).apply()
         }
 
     override var notificationId: String?

@@ -11,6 +11,7 @@
     <string name="Button_Hide">Gizle</string>
     <string name="Button_Cancel">İptal</string>
     <string name="Button_Next">İleri</string>
+    <string name="Button_GettingStarted">Başlarken</string>
     <string name="Button_Enable">Etkinleştir</string>
     <string name="Button_Disable">Etkisizleştir</string>
     <string name="Button_ScanQr">QR Kod Okuma</string>

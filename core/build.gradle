@@ -40,6 +40,11 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
     implementation "androidx.core:core-ktx:$core_ktx_version"
 
+    // SumSub core
+//    implementation "com.sumsub.sns:idensic-mobile-sdk:$latestVersion"
+//    implementation "com.sumsub.sns:idensic-mobile-sdk-videoident:$latestVersion"
+//    implementation "com.sumsub.sns:idensic-mobile-sdk-eid:$latestVersion"
+
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx_version"
     // Navigation component
     api "androidx.navigation:navigation-fragment-ktx:$navigation_ktx_version"
