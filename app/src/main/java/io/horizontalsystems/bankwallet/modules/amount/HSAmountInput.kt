@@ -246,7 +246,7 @@ fun HSAmountInput(
         caution?.let { caution ->
             val color: Color = when (caution.type) {
                 HSCaution.Type.Error -> ComposeAppTheme.colors.redD
-                HSCaution.Type.Warning -> ComposeAppTheme.colors.yellowD
+                HSCaution.Type.Warning -> ComposeAppTheme.colors.primary
             }
             Text(
                 modifier = Modifier.padding(start = 8.dp, top = 8.dp, end = 8.dp),

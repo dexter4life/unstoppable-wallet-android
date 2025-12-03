@@ -211,7 +211,7 @@ fun SignalButton(turnedOn: Boolean, onToggle: (Boolean) -> Unit) {
     val onClick = { onToggle.invoke(!turnedOn) }
     val buttonColors = if (turnedOn) {
         ButtonPrimaryDefaults.textButtonColors(
-            backgroundColor = ComposeAppTheme.colors.yellowD,
+            backgroundColor = ComposeAppTheme.colors.primary,
             contentColor = ComposeAppTheme.colors.dark,
             disabledBackgroundColor = ComposeAppTheme.colors.blade,
             disabledContentColor = ComposeAppTheme.colors.andy,

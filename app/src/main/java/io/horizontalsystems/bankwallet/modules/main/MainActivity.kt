@@ -13,6 +13,7 @@ import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.BaseActivity
 import io.horizontalsystems.bankwallet.core.slideFromBottom
 import io.horizontalsystems.bankwallet.core.slideFromBottomForResult
+import io.horizontalsystems.bankwallet.modules.authentication.AuthenticationActivity
 import io.horizontalsystems.bankwallet.modules.intro.IntroActivity
 import io.horizontalsystems.bankwallet.modules.keystore.KeyStoreActivity
 import io.horizontalsystems.bankwallet.modules.lockscreen.LockScreenActivity
@@ -129,7 +130,8 @@ class MainActivity : BaseActivity() {
         KeyStoreActivity.startForUserAuthentication(this)
         finish()
     } catch (e: MainScreenValidationError.Welcome) {
-        IntroActivity.start(this)
+        AuthenticationActivity.start(this)
+//        IntroActivity.start(this)
         finish()
     } catch (e: MainScreenValidationError.Unlock) {
         LockScreenActivity.start(this)

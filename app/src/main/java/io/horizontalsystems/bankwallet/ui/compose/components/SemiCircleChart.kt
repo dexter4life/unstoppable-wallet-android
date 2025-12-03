@@ -20,7 +20,8 @@ fun SemiCircleChart(
     percentValues: List<Float>,
     title: String
 ) {
-    val paintColor = ComposeAppTheme.colors.yellowD
+val paintColor = ComposeAppTheme.colors.primary
+
     var startAngle = 180F
     val colorParts = 255 / percentValues.size
 

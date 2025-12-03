@@ -194,17 +194,6 @@ fun FlagImage(
     val isAlternativeCached = alternativeUrl != null && isImageCached(alternativeUrl)
     val imageUrl = if (isAlternativeCached) alternativeUrl else url
 
-    val overlayImage =
-        "https://images6.alphacoders.com/488/thumb-1920-488158.jpg"
-
-//    val painter = rememberAsyncImagePainter(
-//        model = ImageRequest.Builder(LocalContext.current)
-//            .data(alternativeUrl)
-//            .size(coil.size.Size.ORIGINAL) // Set the target size to load the image at.
-//            .build()
-//    )
-
-
     when {
         imageUrl != null -> Image(
             painter = rememberAsyncImagePainter(

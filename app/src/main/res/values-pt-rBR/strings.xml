@@ -59,6 +59,7 @@
     <string name="Any">Qualquer</string>
     <string name="SyncError">Erro de sincronização. Tente novamente</string>
     <string name="Keyboard">Teclado</string>
+    <string name="Register_EmptyCountryList">Não há país disponível.</string>
     <string name="AccountRecovery_Note">Observação</string>
     <string name="AccountRecovery_MigrationRecommended">Esta carteira parece usar um caractere não padrão em sua frase de recuperação e/ou senha. Se você não vir um saldo ou transações, leia abaixo para obter detalhes.\n\nCLIQUE PARA OBTER MAIS INFORMAÇÕES</string>
     <string name="AccountRecovery_MigrationRequired">Esta é uma carteira não padrão. \n\nCLIQUE PARA OBTER MAIS INFORMAÇÕES</string>
@@ -896,7 +897,6 @@
     <string name="Premium_SubscriptionPeriod_AnnuallySave">ECONOMIZE 31%</string>
     <string name="Appearance_MarketsTab">TAB MARKETS</string>
     <string name="Appearance_BalanceTab">ABA SALDO</string>
-    <string name="Appearance_AppIcon">ICONE DE APLICATIVO</string>
     <string name="Appearance_BalanceValue">Valor Patrimonial</string>
     <string name="Appearance_Warning_CloseApplication">Alterar o ícone fechará o aplicativo</string>
     <string name="Appearance_HideMarketsTab">Esconder Mercados</string>

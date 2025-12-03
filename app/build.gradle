@@ -427,6 +427,7 @@ dependencies {
 
     api 'com.jaredrummler:android-shell:1.0.0'
     api 'com.offbynull.portmapper:portmapper:2.0.5'
+
 }
 
 configurations.all {

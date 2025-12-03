@@ -19,13 +19,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import io.horizontalsystems.bankwallet.modules.authentication.login.LoginActivityModel
+import io.horizontalsystems.bankwallet.modules.authentication.AuthActivityModel
 import io.horizontalsystems.bankwallet.modules.authentication.login.LoginModule
 import kotlinx.coroutines.delay
 
 @Composable
 fun AutoScrollingPager(
-    viewModel: LoginActivityModel,
+    viewModel: AuthActivityModel,
     pagerState:  PagerState,
     nightMode: Boolean,
     onPageChange: (Int) -> Unit

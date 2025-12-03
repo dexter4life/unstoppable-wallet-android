@@ -1,0 +1,89 @@
+<vector xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android" android:autoMirrored="true" android:height="800dp" android:viewportHeight="32" android:viewportWidth="32" android:width="800dp">
+      
+    <path android:fillColor="#1066B5" android:pathData="M12,2L28,2A2,2 0,0 1,30 4L30,28A2,2 0,0 1,28 30L12,30A2,2 0,0 1,10 28L10,4A2,2 0,0 1,12 2z"/>
+      
+    <path android:pathData="M12,2L28,2A2,2 0,0 1,30 4L30,28A2,2 0,0 1,28 30L12,30A2,2 0,0 1,10 28L10,4A2,2 0,0 1,12 2z">
+            
+        <aapt:attr name="android:fillColor">
+                  
+            <gradient android:endX="30" android:endY="16" android:startX="10" android:startY="16" android:type="linear">
+                        
+                <item android:color="#FF064484" android:offset="0"/>
+                        
+                <item android:color="#FF0F65B5" android:offset="1"/>
+                      
+            </gradient>
+                
+        </aapt:attr>
+          
+    </path>
+      
+    <path android:fillColor="#32A9E7" android:pathData="M10,5h10v10h-10z"/>
+      
+    <path android:fillColor="#167EB4" android:pathData="M10,15h10v10h-10z"/>
+      
+    <path android:fillColor="#32A9E7" android:pathData="M20,15h10v10h-10z"/>
+      
+    <path android:fillColor="#58D9FD" android:pathData="M20,5h10v10h-10z"/>
+      
+    <group>
+            
+        <clip-path android:pathData="M8,14H30C31.105,14 32,14.895 32,16V28C32,29.105 31.105,30 30,30H10C8.895,30 8,29.105 8,28V14Z"/>
+            
+        <path android:fillColor="#135298" android:pathData="M32,14V18H30V14H32Z"/>
+            
+        <path android:pathData="M32,30V16L7,30H32Z">
+                  
+            <aapt:attr name="android:fillColor">
+                        
+                <gradient android:endX="8" android:endY="23" android:startX="32" android:startY="23" android:type="linear">
+                              
+                    <item android:color="#FF44DCFD" android:offset="0"/>
+                              
+                    <item android:color="#FF259ED0" android:offset="0.453"/>
+                            
+                </gradient>
+                      
+            </aapt:attr>
+                
+        </path>
+            
+        <path android:pathData="M8,30V16L33,30H8Z">
+                  
+            <aapt:attr name="android:fillColor">
+                        
+                <gradient android:endX="32" android:endY="23" android:startX="8" android:startY="23" android:type="linear">
+                              
+                    <item android:color="#FF259ED0" android:offset="0"/>
+                              
+                    <item android:color="#FF44DCFD" android:offset="1"/>
+                            
+                </gradient>
+                      
+            </aapt:attr>
+                
+        </path>
+          
+    </group>
+      
+    <path android:fillAlpha="0.3" android:fillColor="#000000" android:pathData="M8,12C8,10.343 9.343,9 11,9H17C18.657,9 20,10.343 20,12V24C20,25.657 18.657,27 17,27H8V12Z"/>
+      
+    <path android:pathData="M2,7L16,7A2,2 0,0 1,18 9L18,23A2,2 0,0 1,16 25L2,25A2,2 0,0 1,0 23L0,9A2,2 0,0 1,2 7z">
+            
+        <aapt:attr name="android:fillColor">
+                  
+            <gradient android:endX="18" android:endY="16" android:startX="0" android:startY="16" android:type="linear">
+                        
+                <item android:color="#FF064484" android:offset="0"/>
+                        
+                <item android:color="#FF0F65B5" android:offset="1"/>
+                      
+            </gradient>
+                
+        </aapt:attr>
+          
+    </path>
+      
+    <path android:fillColor="#ffffff" android:pathData="M14,16.069V15.903C14,13.022 11.927,11 9.016,11C6.089,11 4,13.036 4,15.931V16.097C4,18.978 6.073,21 9,21C11.911,21 14,18.964 14,16.069ZM11.642,16.097C11.642,18.008 10.566,19.158 9.016,19.158C7.465,19.158 6.373,17.981 6.373,16.069V15.903C6.373,13.992 7.449,12.842 9,12.842C10.535,12.842 11.642,14.019 11.642,15.931V16.097Z"/>
+    
+</vector>

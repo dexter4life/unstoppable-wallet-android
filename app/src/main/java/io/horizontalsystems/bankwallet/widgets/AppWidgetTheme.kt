@@ -123,8 +123,10 @@ val grey = Grey
 val yellow50 = Yellow50
 val yellow20 = Yellow20
 
-val yellowD = YellowD
-val yellowL = YellowL
+val primary = YellowD
+
+val primaryLight = YellowL
+
 val greenD = GreenD
 val greenL = GreenL
 val green50 = Green50

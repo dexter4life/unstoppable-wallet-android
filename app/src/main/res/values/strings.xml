@@ -16,7 +16,7 @@
 
 
     <string name="Input_Password">Password</string>
-    <string name="Input_Email">Email</string>
+    <string name="Input_Email">E-mail</string>
 
     <string name="Login_Title">Log In</string>
 
@@ -1074,7 +1074,6 @@
 
     <string name="Appearance_MarketsTab">MARKETS TAB</string>
     <string name="Appearance_BalanceTab">BALANCE TAB</string>
-    <string name="Appearance_AppIcon">APP ICON</string>
     <string name="Appearance_BalanceValue">Balance Value</string>
     <string name="Appearance_Warning_CloseApplication">Changing icon will close application</string>
     <string name="Appearance_HideMarketsTab">Hide Markets</string>
@@ -1868,5 +1867,24 @@
     <string name="LoginWithAction_Title">Or log in with</string>
     <string name="Button_Passkey">Login in with passkey</string>
     <string name="Button_PassKey_Description">Passkey</string>
-
+    <string name="devBaseApi">http://127.0.0.1:3008/api</string>
+    <string name="prodBaseApi">https://fastpayd.com/api</string>
+    <string name="Register_EmptyCountryList">There\'s no country available</string>
+    <string name="AvailableCountry_Title">What country do you live in?</string>
+    <string name="CountryList_CurrentLocationLabel">Based on your location</string>
+    <string name="CountryList_OtherCountryLabel">Other Countries</string>
+    <string name="RegisterScreen_Title">Create Account</string>
+    <string name="Button_ForgotPassword">Forgot Password?</string>
+    <string name="AccountTypeView_Title">What type of account do you want to open?</string>
+    <string name="AccountTypeView_Personal_Title">Personal</string>
+    <string name="AccountTypeView_Personal_subtitle">Manage multiple accounts and move money globally in various currencies.</string>
+    <string name="AccountTypeView_Business_subtitle" >Send and receive payments worldwide from anywhere with multiple currencies.</string>
+    <string name="AccountTypeView_Business_Title">Small Business</string>
+    <string name="AccountType_Requirement_Business_Title">Small Business Registration Requirements</string>
+    <string name="AccountType_Requirement_Fundraising_Title">Fundraising Account Registration Requirements</string>
+    <string name="RequirementModal_Business_Detail">You must provide a government-issued ID, business registration certificate, tax identification number, proof of business address, bank account details, and complete KYC/AML verification.</string>
+    <string name="RequirementModal_Business_Continue">Continue Business Registration</string>
+    <string name="RequirementModal_Fundraising_Continue">Continue Registration</string>
+    <string name="RequirementModal_Fundraising_Detail">You will need a government-issued ID of the authorized representative, non-profit registration documents, tax identification or exemption certificate, proof of organization address, bank account details, governing documents (bylaws or constitution), and to complete KYC/AML verification.</string>
+    <string name="Button_confirm_email">Confirm Email</string>
 </resources>

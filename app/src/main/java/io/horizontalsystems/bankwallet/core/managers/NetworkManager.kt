@@ -4,7 +4,10 @@ import android.annotation.SuppressLint
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
 import com.google.gson.Strictness
+import io.horizontalsystems.bankwallet.core.App
 import io.horizontalsystems.bankwallet.core.INetworkManager
+import io.horizontalsystems.bankwallet.core.managers.APIClient.buildClient
+import io.horizontalsystems.bankwallet.core.providers.nft.OpenSeaApi
 import io.reactivex.Flowable
 import io.reactivex.Single
 import okhttp3.Interceptor
@@ -128,12 +131,12 @@ object ServiceChangeLogs {
 object MiniAppRegisterService {
     private val apiUrl = "https://be.unstoppable.money/"
 
-    fun service(): UnstoppableApi {
+    fun service(): FastPaydApi {
         return APIClient.retrofit(apiUrl, 60)
-            .create(UnstoppableApi::class.java)
+            .create(FastPaydApi::class.java)
     }
 
-    interface UnstoppableApi {
+    interface FastPaydApi {
         @GET("api/v1/tasks/registerApp")
         suspend fun registerApp(
             @Query("userId") userId: String,

@@ -44,6 +44,7 @@
     <string name="Any">أي واحد</string>
     <string name="SyncError">خطأ في المزامنة. حاول مرة أخرى</string>
     <string name="Keyboard">لوحة المفاتيح</string>
+    <string name="Register_EmptyCountryList">لا توجد دولة متاحة.</string>
     <string name="AccountRecovery_Note">ملاحظة</string>
     <string name="AccountRecovery_MigrationRecommended">يبدو أن هذه المحفظة تستخدم حرف غير قياسي في عبارة الاسترداد و/أو عبارة المرور. إذا كنت لا ترا رصيد أو معاملات يرجى قراءة أدناه للحصول على التفاصيل.\n\nضع علامة للحصول على المزيد من المعلومات</string>
     <string name="AccountRecovery_MigrationRequired">هذه محفظة غير قياسية. \n\nاضغط للحصول على المزيد من المعلومات</string>

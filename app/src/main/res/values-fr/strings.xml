@@ -59,6 +59,7 @@
     <string name="Any">N\'importe lequel</string>
     <string name="SyncError">Erreur de synchronisation. Réessayez</string>
     <string name="Keyboard">Clavier</string>
+    <string name="Register_EmptyCountryList">Aucun pays disponible.</string>
     <string name="AccountRecovery_Note">Remarque</string>
     <string name="AccountRecovery_MigrationRecommended">Ce portefeuille semble utiliser un caractère non-standard dans sa liste de mots secrets et/ou dans une phrase de passe. Si vous ne voyez pas de solde ou de transactions, veuillez vous reporter aux informations ci-dessous. \n\nCLIQUEZ POUR OBTENIR PLUS D\'INFOS</string>
     <string name="AccountRecovery_MigrationRequired">Ce portefeuille n\'est pas conforme aux normes.\n\nCLIQUEZ POUR OBTENIR PLUS D\'INFOS</string>
@@ -892,7 +893,6 @@
     <string name="Premium_SubscriptionPeriod_AnnuallySave">ÉCONOMISEZ 31%</string>
     <string name="Appearance_MarketsTab">TAB DES MARCHÉS</string>
     <string name="Appearance_BalanceTab">BALANCE TAB</string>
-    <string name="Appearance_AppIcon">ICON APPLICATION</string>
     <string name="Appearance_BalanceValue">Valeur du solde</string>
     <string name="Appearance_Warning_CloseApplication">La modification de l\'icône fermera l\'application</string>
     <string name="Appearance_HideMarketsTab">Masquer les marchés</string>

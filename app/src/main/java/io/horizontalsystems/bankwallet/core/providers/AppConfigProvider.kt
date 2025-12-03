@@ -84,6 +84,14 @@ class AppConfigProvider(localStorage: ILocalStorage) {
         Translator.getString(R.string.marketApiBaseUrl)
     }
 
+    val baseUrl by lazy {
+        if (BuildConfig.DEBUG) {
+            Translator.getString(R.string.devBaseApi)
+        } else {
+            Translator.getString(R.string.prodBaseApi)
+        }
+    }
+
     val marketApiKey by lazy {
         Translator.getString(R.string.marketApiKey)
     }
