@@ -10,13 +10,14 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'com.google.devtools.ksp'
+    id 'com.google.protobuf'
     id 'org.jetbrains.kotlin.plugin.compose'
 }
 
 android {
 
     defaultConfig {
-        applicationId "io.horizontalsystems.bankwallet"
+        applicationId "io.fastpayd.wallet"
         compileSdk compile_sdk_version
         minSdkVersion min_sdk_version
         targetSdkVersion compile_sdk_version
@@ -45,6 +46,9 @@ android {
         resValue "string", "walletConnectAppMetaDataUrl", "unstoppable.money"
         resValue "string", "walletConnectAppMetaDataIcon", "https://raw.githubusercontent.com/horizontalsystems/HS-Design/master/PressKit/UW-AppIcon-on-light.png"
         resValue "string", "accountsBackupFileSalt", "unstoppable"
+        resValue "string", "fastpaydGrpcAuthority", "be.unstoppable.money:443"
+        resValue "string", "fastpaydGrpcUseTls", "true"
+        resValue "string", "fastpaydLibp2pBootstrapPeers", ""
 
         buildConfigField "boolean", "FDROID_BUILD", "false"
 
@@ -57,6 +61,105 @@ android {
         compose true
         viewBinding true
         buildConfig true
+    }
+
+    sourceSets {
+        main {
+            java {
+                exclude 'io/fastpayd/wallet/modules/send/evm/**'
+                exclude 'io/fastpayd/wallet/modules/send/address/**'
+                exclude 'io/fastpayd/wallet/modules/send/bitcoin/**'
+                exclude 'io/fastpayd/wallet/modules/send/solana/**'
+                exclude 'io/fastpayd/wallet/modules/send/stellar/**'
+                exclude 'io/fastpayd/wallet/modules/send/ton/**'
+                exclude 'io/fastpayd/wallet/modules/send/tron/**'
+                exclude 'io/fastpayd/wallet/modules/send/zcash/**'
+                exclude 'io/fastpayd/wallet/modules/send/SendConfirmationData.kt'
+                exclude 'io/fastpayd/wallet/modules/send/SendConfirmationFragment.kt'
+                exclude 'io/fastpayd/wallet/modules/send/SendConfirmationScreen.kt'
+                exclude 'io/fastpayd/wallet/modules/multiswap/**'
+                exclude 'io/fastpayd/wallet/modules/eip20approve/**'
+                exclude 'io/fastpayd/wallet/modules/eip20revoke/**'
+                exclude 'io/fastpayd/wallet/modules/evmfee/**'
+                exclude 'io/fastpayd/wallet/modules/hodler/**'
+                exclude 'io/fastpayd/wallet/modules/blockchainsettings/**'
+                exclude 'io/fastpayd/wallet/modules/restoreaccount/restoremnemonic/**'
+                exclude 'io/fastpayd/wallet/modules/restoreaccount/restoremnemonicnonstandard/**'
+                exclude 'io/fastpayd/wallet/modules/restoreaccount/restoreprivatekey/**'
+                exclude 'io/fastpayd/wallet/modules/manageaccount/privatekeys/**'
+                exclude 'io/fastpayd/wallet/modules/manageaccount/publickeys/**'
+                exclude 'io/fastpayd/wallet/modules/manageaccount/showextendedkey/**'
+                exclude 'io/fastpayd/wallet/modules/addtoken/**'
+                exclude 'io/fastpayd/wallet/modules/address/**'
+                exclude 'io/fastpayd/wallet/modules/activatetoken/**'
+                exclude 'io/fastpayd/wallet/modules/authentication/**'
+                exclude 'io/fastpayd/wallet/modules/sendtokenselect/**'
+                exclude 'io/fastpayd/wallet/modules/settings/addresschecker/**'
+                exclude 'io/fastpayd/wallet/modules/receive/ActivateTokenViewModel.kt'
+                exclude 'io/fastpayd/wallet/modules/restoreaccount/RestoreAccountAdvanced.kt'
+                exclude 'io/fastpayd/wallet/modules/restoreaccount/RestoreAccountFragment.kt'
+                exclude 'io/fastpayd/wallet/modules/sendevmtransaction/**'
+                exclude 'io/fastpayd/wallet/modules/solananetwork/**'
+                exclude 'io/fastpayd/wallet/modules/tonconnect/**'
+                exclude 'io/fastpayd/wallet/modules/transactionInfo/options/**'
+                exclude 'io/fastpayd/wallet/modules/transactionInfo/resendbitcoin/**'
+                exclude 'io/fastpayd/wallet/modules/walletconnect/request/**'
+                exclude 'io/fastpayd/wallet/modules/walletconnect/session/**'
+                exclude 'io/fastpayd/wallet/modules/watchaddress/**'
+                exclude 'io/fastpayd/wallet/core/managers/SpamManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/StellarAccountManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/StellarKitManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/TonConnectManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/TonAccountManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/TonKitManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/TronAccountManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/TronKitManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/EvmAccountManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/EvmBlockchainManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/EvmKitManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/EvmSyncSourceManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/SolanaKitManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/SolanaRpcSourceManager.kt'
+                exclude 'io/fastpayd/wallet/core/managers/SolanaWalletManager.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/BaseStellarAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/StellarAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/StellarAssetAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/StellarTransactionsAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/StellarTransactionRecord.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/BaseTonAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/TonAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/TonTransactionConverter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/TonTransactionsAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/JettonAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/BaseTronAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/TronAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/Trc20Adapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/TronTransactionConverter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/TronTransactionsAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/EvmTransactionConverter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/EvmTransactionsAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/BitcoinBaseAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/BitcoinAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/BitcoinCashAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/DashAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/ECashAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/BaseEvmAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/EvmAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/Eip20Adapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/BaseSolanaAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/SolanaAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/SolanaTransactionConverter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/SolanaTransactionsAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/SplAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/LitecoinAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/adapters/zcash/**'
+                exclude 'io/fastpayd/wallet/core/adapters/nft/EvmNftAdapter.kt'
+                exclude 'io/fastpayd/wallet/core/address/Eip20AddressValidator.kt'
+                exclude 'io/fastpayd/wallet/core/factories/StellarTransactionConverter.kt'
+                exclude 'io/fastpayd/wallet/core/factories/AddressValidatorFactory.kt'
+                exclude 'io/fastpayd/wallet/modules/profeatures/ProFeaturesAuthorizationManager.kt'
+            }
+        }
     }
 
     signingConfigs {
@@ -182,8 +285,17 @@ android {
 
     packagingOptions {
         resources {
-            pickFirsts += ['META-INF/atomicfu.kotlin_module']
-            excludes += ['META-INF/INDEX.LIST', 'META-INF/DEPENDENCIES', 'META-INF/LICENSE.md', 'META-INF/NOTICE.md']
+            pickFirsts += [
+                'META-INF/atomicfu.kotlin_module',
+                'META-INF/io.netty.versions.properties'
+            ]
+            excludes += [
+                'META-INF/INDEX.LIST',
+                'META-INF/DEPENDENCIES',
+                'META-INF/LICENSE.md',
+                'META-INF/NOTICE.md',
+                'META-INF/versions/9/OSGI-INF/MANIFEST.MF'
+            ]
         }
         jniLibs {
             useLegacyPackaging true
@@ -197,7 +309,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion '1.5.12'
     }
-    namespace 'io.horizontalsystems.bankwallet'
+    namespace 'io.fastpayd.wallet'
     lint {
         disable 'LogNotTimber'
     }
@@ -222,6 +334,101 @@ android {
         }
     }
 
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    exclude '**/modules/send/evm/**'
+    exclude '**/modules/send/address/**'
+    exclude '**/modules/send/bitcoin/**'
+    exclude '**/modules/send/solana/**'
+    exclude '**/modules/send/stellar/**'
+    exclude '**/modules/send/ton/**'
+    exclude '**/modules/send/tron/**'
+    exclude '**/modules/send/zcash/**'
+    exclude '**/modules/send/SendConfirmationData.kt'
+    exclude '**/modules/send/SendConfirmationFragment.kt'
+    exclude '**/modules/send/SendConfirmationScreen.kt'
+    exclude '**/modules/multiswap/**'
+    exclude '**/modules/eip20approve/**'
+    exclude '**/modules/eip20revoke/**'
+    exclude '**/modules/evmfee/**'
+    exclude '**/modules/hodler/**'
+    exclude '**/modules/blockchainsettings/**'
+    exclude '**/modules/restoreaccount/restoremnemonic/**'
+    exclude '**/modules/restoreaccount/restoremnemonicnonstandard/**'
+    exclude '**/modules/restoreaccount/restoreprivatekey/**'
+    exclude '**/modules/manageaccount/privatekeys/**'
+    exclude '**/modules/manageaccount/publickeys/**'
+    exclude '**/modules/manageaccount/showextendedkey/**'
+    exclude '**/modules/addtoken/**'
+    exclude '**/modules/address/**'
+    exclude '**/modules/activatetoken/**'
+    exclude '**/modules/authentication/**'
+    exclude '**/modules/sendtokenselect/**'
+    exclude '**/modules/settings/addresschecker/**'
+    exclude '**/modules/receive/ActivateTokenViewModel.kt'
+    exclude '**/modules/restoreaccount/RestoreAccountAdvanced.kt'
+    exclude '**/modules/restoreaccount/RestoreAccountFragment.kt'
+    exclude '**/modules/sendevmtransaction/**'
+    exclude '**/modules/solananetwork/**'
+    exclude '**/modules/tonconnect/**'
+    exclude '**/modules/transactionInfo/options/**'
+    exclude '**/modules/transactionInfo/resendbitcoin/**'
+    exclude '**/modules/walletconnect/request/**'
+    exclude '**/modules/walletconnect/session/**'
+    exclude '**/modules/watchaddress/**'
+    exclude '**/core/managers/SpamManager.kt'
+    exclude '**/core/managers/StellarAccountManager.kt'
+    exclude '**/core/managers/StellarKitManager.kt'
+    exclude '**/core/managers/TonConnectManager.kt'
+    exclude '**/core/managers/TonAccountManager.kt'
+    exclude '**/core/managers/TonKitManager.kt'
+    exclude '**/core/managers/TronAccountManager.kt'
+    exclude '**/core/managers/TronKitManager.kt'
+    exclude '**/core/managers/EvmAccountManager.kt'
+    exclude '**/core/managers/EvmBlockchainManager.kt'
+    exclude '**/core/managers/EvmKitManager.kt'
+    exclude '**/core/managers/EvmSyncSourceManager.kt'
+    exclude '**/core/managers/SolanaKitManager.kt'
+    exclude '**/core/managers/SolanaRpcSourceManager.kt'
+    exclude '**/core/managers/SolanaWalletManager.kt'
+    exclude '**/core/adapters/BaseStellarAdapter.kt'
+    exclude '**/core/adapters/StellarAdapter.kt'
+    exclude '**/core/adapters/StellarAssetAdapter.kt'
+    exclude '**/core/adapters/StellarTransactionsAdapter.kt'
+    exclude '**/core/adapters/StellarTransactionRecord.kt'
+    exclude '**/core/adapters/BaseTonAdapter.kt'
+    exclude '**/core/adapters/TonAdapter.kt'
+    exclude '**/core/adapters/TonTransactionConverter.kt'
+    exclude '**/core/adapters/TonTransactionsAdapter.kt'
+    exclude '**/core/adapters/JettonAdapter.kt'
+    exclude '**/core/adapters/BaseTronAdapter.kt'
+    exclude '**/core/adapters/TronAdapter.kt'
+    exclude '**/core/adapters/Trc20Adapter.kt'
+    exclude '**/core/adapters/TronTransactionConverter.kt'
+    exclude '**/core/adapters/TronTransactionsAdapter.kt'
+    exclude '**/core/adapters/EvmTransactionConverter.kt'
+    exclude '**/core/adapters/EvmTransactionsAdapter.kt'
+    exclude '**/core/adapters/BitcoinBaseAdapter.kt'
+    exclude '**/core/adapters/BitcoinAdapter.kt'
+    exclude '**/core/adapters/BitcoinCashAdapter.kt'
+    exclude '**/core/adapters/DashAdapter.kt'
+    exclude '**/core/adapters/ECashAdapter.kt'
+    exclude '**/core/adapters/BaseEvmAdapter.kt'
+    exclude '**/core/adapters/EvmAdapter.kt'
+    exclude '**/core/adapters/Eip20Adapter.kt'
+    exclude '**/core/adapters/BaseSolanaAdapter.kt'
+    exclude '**/core/adapters/SolanaAdapter.kt'
+    exclude '**/core/adapters/SolanaTransactionConverter.kt'
+    exclude '**/core/adapters/SolanaTransactionsAdapter.kt'
+    exclude '**/core/adapters/SplAdapter.kt'
+    exclude '**/core/adapters/LitecoinAdapter.kt'
+    exclude '**/core/adapters/zcash/**'
+    exclude '**/core/adapters/nft/EvmNftAdapter.kt'
+    exclude '**/core/address/Eip20AddressValidator.kt'
+    exclude '**/core/factories/StellarTransactionConverter.kt'
+    exclude '**/core/factories/AddressValidatorFactory.kt'
+    exclude '**/modules/profeatures/ProFeaturesAuthorizationManager.kt'
 }
 
 configurations {
@@ -315,20 +522,20 @@ dependencies {
     debugImplementation leakCanary
 
     // Wallet kits
-    implementation 'com.github.horizontalsystems:stellar-kit-android:c27e3a5'
-    implementation 'com.github.horizontalsystems:ton-kit-android:dcddd90'
-    implementation 'com.github.horizontalsystems:bitcoin-kit-android:7826bf5'
-    implementation 'com.github.horizontalsystems:ethereum-kit-android:1.2.0'
-    implementation 'com.github.horizontalsystems:blockchain-fee-rate-kit-android:1d3bd49'
+//    implementation 'com.github.horizontalsystems:stellar-kit-android:c27e3a5'
+//    implementation 'com.github.horizontalsystems:ton-kit-android:dcddd90'
+//    implementation 'com.github.horizontalsystems:bitcoin-kit-android:7826bf5'
+//    implementation 'com.github.horizontalsystems:ethereum-kit-android:1.2.0'
+//    implementation 'com.github.horizontalsystems:blockchain-fee-rate-kit-android:1d3bd49'
     implementation 'com.github.horizontalsystems:market-kit-android:f1286c8'
-    implementation 'com.github.horizontalsystems:solana-kit-android:ce738d8'
-    implementation 'com.github.horizontalsystems:tron-kit-android:bdd7602'
+//    implementation 'com.github.horizontalsystems:solana-kit-android:ce738d8'
+//    implementation 'com.github.horizontalsystems:tron-kit-android:bdd7602'
     // Zcash SDK
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
-    implementation "cash.z.ecc.android:zcash-android-sdk:2.2.12"
-    implementation("io.github.binance:binance-connector-java:3.0.0rc2") {
-        exclude group: "org.bouncycastle", module: "bcprov-jdk18on"
-    }
+//    implementation "cash.z.ecc.android:zcash-android-sdk:2.2.12"
+//    implementation("io.github.binance:binance-connector-java:3.0.0rc2") {
+//        exclude group: "org.bouncycastle", module: "bcprov-jdk18on"
+//    }
 
 
     // Exclude old version from wherever it's coming
@@ -352,6 +559,12 @@ dependencies {
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-rx2:1.10.1'
+
+    implementation 'io.grpc:grpc-okhttp:1.80.0'
+    implementation 'io.grpc:grpc-protobuf:1.80.0'
+    implementation 'io.grpc:grpc-stub:1.80.0'
+    compileOnly 'javax.annotation:javax.annotation-api:1.3.2'
+    implementation 'io.libp2p:jvm-libp2p:1.2.2-RELEASE'
 
     // UI modules
 
@@ -428,6 +641,27 @@ dependencies {
     api 'com.jaredrummler:android-shell:1.0.0'
     api 'com.offbynull.portmapper:portmapper:2.0.5'
 
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.25.5'
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.80.0'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {}
+            }
+            task.plugins {
+                grpc {}
+            }
+        }
+    }
 }
 
 configurations.all {

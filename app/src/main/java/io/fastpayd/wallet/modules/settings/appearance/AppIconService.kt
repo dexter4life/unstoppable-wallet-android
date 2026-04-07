@@ -1,0 +1,43 @@
+package io.fastpayd.wallet.modules.settings.appearance
+
+import android.content.ComponentName
+import android.content.pm.PackageManager
+import io.fastpayd.wallet.BuildConfig
+import io.fastpayd.wallet.core.App
+import io.fastpayd.wallet.core.ILocalStorage
+import io.fastpayd.wallet.ui.compose.Select
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+
+class AppIconService(private val localStorage: ILocalStorage) {
+    private val appIcons by lazy { AppIcon.entries }
+
+    private val _optionsFlow = MutableStateFlow(
+        Select(localStorage.appIcon ?: AppIcon.Main, appIcons)
+    )
+    val optionsFlow = _optionsFlow.asStateFlow()
+
+    fun setAppIcon(appIcon: AppIcon) {
+        localStorage.appIcon = appIcon
+
+        _optionsFlow.update {
+            Select(appIcon, appIcons)
+        }
+
+        if (BuildConfig.DEBUG) {
+            return
+        }
+
+        val enabled = PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+        val disabled = PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+
+        AppIcon.entries.forEach { item ->
+            App.instance.packageManager.setComponentEnabledSetting(
+                ComponentName(App.instance, item.launcherName),
+                if (appIcon == item) enabled else disabled,
+                PackageManager.DONT_KILL_APP
+            )
+        }
+    }
+}

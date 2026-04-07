@@ -1,14 +1,14 @@
-//package io.horizontalsystems.bankwallet.core.managers
+//package io.fastpayd.wallet.core.managers
 //
 //import com.nhaarman.mockito_kotlin.verify
 //import com.nhaarman.mockito_kotlin.verifyNoMoreInteractions
 //import com.nhaarman.mockito_kotlin.whenever
-//import io.horizontalsystems.bankwallet.core.IAdapter
-//import io.horizontalsystems.bankwallet.core.Wallet
-//import io.horizontalsystems.bankwallet.core.factories.AdapterFactory
-//import io.horizontalsystems.bankwallet.entities.AuthData
-//import io.horizontalsystems.bankwallet.entities.Coin
-//import io.horizontalsystems.bankwallet.entities.CoinType
+//import io.fastpayd.wallet.core.IAdapter
+//import io.fastpayd.wallet.core.Wallet
+//import io.fastpayd.wallet.core.factories.AdapterFactory
+//import io.fastpayd.wallet.entities.AuthData
+//import io.fastpayd.wallet.entities.Coin
+//import io.fastpayd.wallet.entities.CoinType
 //import org.junit.Before
 //import org.junit.Test
 //import org.mockito.Mockito.mock

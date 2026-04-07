@@ -74,6 +74,8 @@
     <string name="Idle" translatable="false">-</string>
     <string name="Any">Any</string>
     <string name="SyncError">Sync error. Try Again</string>
+    <string name="Receive_Placeholder_Message">This wallet is running with placeholder receive data in this build.</string>
+    <string name="Send_Placeholder_Message">Sending %1$s is unavailable in this build. The screen is preserved, but on-chain sending is disabled.</string>
 
     <string name="FooterText" translatable="false">© Horizontal Systems %d</string>
 

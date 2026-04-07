@@ -1,0 +1,5 @@
+package io.fastpayd.bitcoincore.rbf
+
+class ReplacementTransaction
+
+class ReplacementTransactionInfo

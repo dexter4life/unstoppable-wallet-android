@@ -1,6 +1,6 @@
-//package io.horizontalsystems.bankwallet.modules.send
+//package io.fastpayd.wallet.modules.send
 //
-//import io.horizontalsystems.bankwallet.entities.*
+//import io.fastpayd.wallet.entities.*
 //import org.junit.Assert
 //import org.junit.Before
 //import org.junit.Test
