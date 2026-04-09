@@ -9,19 +9,25 @@ import androidx.activity.viewModels
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -38,6 +44,14 @@ import io.fastpayd.wallet.ui.compose.components.SliderIndicator
 import io.fastpayd.wallet.ui.compose.components.body_grey
 import io.fastpayd.wallet.ui.compose.components.title3_leah
 import kotlinx.coroutines.launch
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.ui.text.font.FontWeight
+import com.tbuonomo.viewpagerdotsindicator.compose.DotsIndicator
+import com.tbuonomo.viewpagerdotsindicator.compose.model.DotGraphic
+import com.tbuonomo.viewpagerdotsindicator.compose.type.ShiftIndicatorType
+import io.fastpayd.wallet.widgets.dark
 
 class IntroActivity : BaseActivity() {
 
@@ -68,7 +82,24 @@ class IntroActivity : BaseActivity() {
 
 @Composable
 private fun IntroScreen(viewModel: IntroViewModel, nightMode: Boolean, closeActivity: () -> Unit) {
-    val pageCount = 3
+    IntroScreen(
+        slides = viewModel.slides,
+        nightMode = nightMode,
+        onStartClicked = {
+            viewModel.onStartClicked()
+//            MainModule.start(LocalContext.current)
+            closeActivity()
+        }
+    )
+}
+
+@Composable
+private fun IntroScreen(
+    slides: List<IntroModule.IntroSliderData>,
+    nightMode: Boolean,
+    onStartClicked: () -> Unit
+) {
+    val pageCount = slides.size
     val pagerState = rememberPagerState(initialPage = 0) { pageCount }
     ComposeAppTheme {
         RadialBackground()
@@ -77,21 +108,20 @@ private fun IntroScreen(viewModel: IntroViewModel, nightMode: Boolean, closeActi
             state = pagerState,
             verticalAlignment = Alignment.Top,
         ) { index ->
-            SlidingContent(viewModel.slides[index], nightMode)
+            SlidingContent(slides[index], nightMode)
         }
 
-        StaticContent(viewModel, pagerState, closeActivity, pageCount)
+        StaticContent(slides, pagerState, onStartClicked, pageCount)
     }
 }
 
 @Composable
 private fun StaticContent(
-    viewModel: IntroViewModel,
+    slides: List<IntroModule.IntroSliderData>,
     pagerState: PagerState,
-    closeActivity: () -> Unit,
+    onStartClicked: () -> Unit,
     pageCount: Int
 ) {
-    val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
 
     Column(
@@ -100,18 +130,12 @@ private fun StaticContent(
         Spacer(Modifier.weight(2f))
         Spacer(Modifier.height(326.dp))
         Spacer(Modifier.weight(1f))
-        SliderIndicator(
-            total = pageCount,
-            current = pagerState.currentPage
-        )
-        Spacer(Modifier.weight(1f))
-        //Text
         Column(
             modifier = Modifier
                 .height(120.dp)
                 .fillMaxWidth(),
         ) {
-            val title = viewModel.slides[pagerState.currentPage].title
+            val title = slides[pagerState.currentPage].title
             Crossfade(targetState = title) { titleRes ->
                 title3_leah(
                     modifier = Modifier
@@ -122,7 +146,7 @@ private fun StaticContent(
                 )
             }
             Spacer(Modifier.height(16.dp))
-            val subtitle = viewModel.slides[pagerState.currentPage].subtitle
+            val subtitle = slides[pagerState.currentPage].subtitle
             Crossfade(targetState = subtitle) { subtitleRes ->
                 body_grey(
                     text = stringResource(subtitleRes),
@@ -134,6 +158,13 @@ private fun StaticContent(
             }
         }
         Spacer(Modifier.weight(2f))
+        DotsIndicator(
+            dotCount = 3,
+            type = ShiftIndicatorType(dotsGraphic = DotGraphic(color = dark, size = 8.dp)),
+            pagerState = pagerState,
+            modifier = Modifier.height(10.dp)
+        )
+        Spacer(Modifier.weight(1f))
         ButtonPrimaryYellow(
             modifier = Modifier
                 .padding(horizontal = 24.dp)
@@ -145,15 +176,14 @@ private fun StaticContent(
                         pagerState.animateScrollToPage(pagerState.currentPage + 1)
                     }
                 } else {
-                    viewModel.onStartClicked()
-                    MainModule.start(context)
-                    closeActivity()
-
+                    onStartClicked()
                 }
-            })
+            }
+        )
         Spacer(Modifier.height(60.dp))
     }
 }
+
 
 @Composable
 private fun SlidingContent(
@@ -177,6 +207,46 @@ private fun SlidingContent(
         //Text
         Spacer(Modifier.height(120.dp))
         Spacer(Modifier.weight(2f))
-        Spacer(Modifier.height(110.dp))
     }
 }
+
+@Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Composable
+private fun Preview_IntroScreen_Light() {
+    IntroScreen(
+        slides = previewSlides,
+        nightMode = false,
+        onStartClicked = {}
+    )
+}
+
+@Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun Preview_IntroScreen_Dark() {
+    IntroScreen(
+        slides = previewSlides,
+        nightMode = true,
+        onStartClicked = {}
+    )
+}
+
+private val previewSlides = listOf(
+    IntroModule.IntroSliderData(
+        R.string.Intro_Wallet_Screen2Title,
+        R.string.Intro_Wallet_Screen2Description,
+        R.drawable.ic_multi_currency_supports,
+        R.drawable.ic_multi_currency_supports
+    ),
+    IntroModule.IntroSliderData(
+        R.string.Intro_Wallet_Screen3Title,
+        R.string.Intro_Wallet_Screen3Description,
+        R.drawable.ic_knowledge_light,
+        R.drawable.ic_knowledge
+    ),
+    IntroModule.IntroSliderData(
+        R.string.Intro_Wallet_Screen4Title,
+        R.string.Intro_Wallet_Screen4Description,
+        R.drawable.ic_privacy_light,
+        R.drawable.ic_privacy
+    ),
+)

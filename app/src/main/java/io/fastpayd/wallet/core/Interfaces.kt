@@ -23,7 +23,6 @@ import io.fastpayd.wallet.entities.Wallet
 import io.fastpayd.wallet.entities.transactionrecords.TransactionRecord
 import io.fastpayd.wallet.entities.transactionrecords.bitcoin.BitcoinTransactionRecord
 import io.fastpayd.wallet.modules.amount.AmountInputType
-import io.fastpayd.wallet.modules.authentication.AuthData
 import io.fastpayd.wallet.modules.balance.BalanceSortType
 import io.fastpayd.wallet.modules.balance.BalanceViewType
 import io.fastpayd.wallet.modules.main.MainModule

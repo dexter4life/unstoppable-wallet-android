@@ -46,14 +46,14 @@ import io.fastpayd.wallet.core.composablePage
 import io.fastpayd.wallet.modules.authentication.login.LoginModule
 import io.fastpayd.wallet.modules.authentication.login.LoginScreen
 import io.fastpayd.wallet.modules.authentication.register.AccountTypeView
-import io.fastpayd.wallet.modules.authentication.register.CountryDetailFormScreen
+//import io.fastpayd.wallet.modules.authentication.register.CountryDetailFormScreen
 import io.fastpayd.wallet.modules.authentication.register.RegisterActivityModel
 import io.fastpayd.wallet.modules.authentication.register.RegisterForm
 import io.fastpayd.wallet.modules.authentication.register.RegisterModule
 import io.fastpayd.wallet.modules.authentication.register.RegisterView
-import io.fastpayd.wallet.modules.authentication.register.SmsCodeScreen
+//import io.fastpayd.wallet.modules.authentication.register.SmsCodeScreen
 import io.fastpayd.wallet.modules.authentication.register.VerifyEmailNotification
-import io.fastpayd.wallet.modules.authentication.register.VerifyPhoneScreen
+//import io.fastpayd.wallet.modules.authentication.register.VerifyPhoneScreen
 import io.fastpayd.wallet.ui.compose.ComposeAppTheme
 import io.fastpayd.wallet.ui.compose.components.ButtonPrimary
 import io.fastpayd.wallet.ui.compose.components.ButtonPrimaryDefaults
@@ -170,12 +170,12 @@ private fun AuthIntro(
                         onBackClick = { navController.popBackStack() },
                         nightMode = nightMode
                     ) {
-                        CountryDetailFormScreen(
-                            viewModel = vm,
-                            onNextClicked = {
-                                navController.navigate(VERIFY_MAIL_NOTIFICATION_ROUTE)
-                            }
-                        )
+//                        CountryDetailFormScreen(
+//                            viewModel = vm,
+//                            onNextClicked = {
+//                                navController.navigate(VERIFY_MAIL_NOTIFICATION_ROUTE)
+//                            }
+//                        )
                     }
                 }
 
@@ -189,19 +189,19 @@ private fun AuthIntro(
 
 
                 composablePage(VERIFY_PHONE_ROUTE) {
-                    VerifyPhoneScreen(onBack = {
-                        navController.popBackStack()
-                    }, onCodeSend = { phone ->
-                        navController.navigate(CONFIRM_PHONE_ROUTE)
-                    })
+//                    VerifyPhoneScreen(onBack = {
+//                        navController.popBackStack()
+//                    }, onCodeSend = { phone ->
+//                        navController.navigate(CONFIRM_PHONE_ROUTE)
+//                    })
                 }
 
                 composablePage(CONFIRM_PHONE_ROUTE) {
-                    SmsCodeScreen(onClose = {
-                        navController.popBackStack(REGISTER_ROUTE, false)
-                    }, onDone = {
-                        navController.navigate(ACCOUNT_TYPE_ROUTE)
-                    }, onResendClick = {}, maskedPhone = "********5466")
+//                    SmsCodeScreen(onClose = {
+//                        navController.popBackStack(REGISTER_ROUTE, false)
+//                    }, onDone = {
+//                        navController.navigate(ACCOUNT_TYPE_ROUTE)
+//                    }, onResendClick = {}, maskedPhone = "********5466")
                 }
             }
         }

@@ -12,7 +12,7 @@ import io.fastpayd.wallet.R
 import io.fastpayd.wallet.core.App
 import io.fastpayd.wallet.core.BaseActivity
 import io.fastpayd.wallet.core.slideFromBottom
-import io.fastpayd.wallet.modules.authentication.AuthenticationActivity
+//import io.fastpayd.wallet.modules.authentication.AuthenticationActivity
 import io.fastpayd.wallet.modules.intro.IntroActivity
 import io.fastpayd.wallet.modules.keystore.KeyStoreActivity
 import io.fastpayd.wallet.modules.lockscreen.LockScreenActivity
@@ -96,8 +96,7 @@ class MainActivity : BaseActivity() {
         KeyStoreActivity.startForUserAuthentication(this)
         finish()
     } catch (e: MainScreenValidationError.Welcome) {
-        AuthenticationActivity.start(this)
-//        IntroActivity.start(this)
+        IntroActivity.start(this)
         finish()
     } catch (e: MainScreenValidationError.Unlock) {
         LockScreenActivity.start(this)

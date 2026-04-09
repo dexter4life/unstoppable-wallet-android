@@ -512,6 +512,8 @@ dependencies {
     // QR code generator
     implementation("io.github.alexzhirkevich:qrose:1.0.1")
 
+    implementation("com.tbuonomo:dotsindicator:5.1.0")
+
     // WorkManager Kotlin
     def work_version = "2.10.0"
     implementation "androidx.work:work-runtime-ktx:$work_version"
